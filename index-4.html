@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="ky">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#f5f0e8">
+  <meta name="description" content="Адилет менен Фатиманын үйлөнүү үлпөт тоюна чакыруу">
+  <title>Адилет & Фатима — Үйлөнүү үлпөтүнө чакыруу</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    :root{--ink:#654b3b;--gold:#a98968;--cream:#f8f5ef;--olive:#817b6d}
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{min-height:100vh;background:#e9e4dc;color:var(--ink);font-family:'Cormorant Garamond',serif}
+    .page{width:min(100%,520px);margin:0 auto;background:var(--cream);box-shadow:0 15px 60px #55483825;overflow:hidden}
+    .poster{position:relative;width:100%;isolation:isolate;overflow:hidden;background:#f8f5ef}
+    .poster-bg{display:block;width:100%;height:auto;user-select:none;pointer-events:none}
+    .poster-content{position:absolute;inset:0;z-index:2;text-align:center;color:#624b3d}
+    .top-note{position:absolute;top:16.7%;left:9%;right:9%;font-size:clamp(12px,3vw,17px);letter-spacing:2px;text-transform:uppercase;animation:fadeUp 1.4s both}
+    .couple{position:absolute;top:43.1%;left:5%;right:5%;font-family:'Great Vibes',cursive;font-size:clamp(43px,10.8vw,68px);line-height:1.1;font-weight:400;text-shadow:0 1px 0 #fff9;animation:fadeUp 1.8s .2s both}
+    .couple span{font-family:'Cormorant Garamond',serif;font-size:.65em;color:#a98968;padding:0 4px}
+    .invite-text{position:absolute;top:50.2%;left:13%;right:13%;font-size:clamp(14px,3.5vw,19px);line-height:1.35;animation:fadeUp 1.8s .4s both}
+    .details{position:absolute;top:62.1%;left:18%;right:12%;display:grid;grid-template-columns:27px 1fr;gap:9px 12px;align-items:center;text-align:left;font-family:'Cormorant Garamond',serif;font-size:clamp(17px,4.1vw,23px);animation:fadeUp 1.8s .6s both}
+    .details svg{width:25px;height:25px;stroke:#9a7758;stroke-width:1.8;fill:none}
+    .details .pin{fill:#9a7758;stroke:#9a7758}
+    .hosts{position:absolute;top:77.2%;left:8%;right:8%;font-size:clamp(15px,3.7vw,20px);line-height:1.2;animation:fadeUp 1.8s .8s both}
+    .hosts strong{display:block;font-family:'Great Vibes',cursive;font-weight:400;font-size:clamp(30px,7vw,43px);margin-top:5px}
+    .bottom-caption{position:absolute;bottom:2.3%;left:5%;right:5%;font-size:11px;letter-spacing:2px;color:#806b59}
+    .float-petal{position:absolute;z-index:3;top:-8%;width:12px;height:18px;border-radius:90% 0 90% 0;background:#fff9e9;opacity:.7;filter:drop-shadow(0 2px 3px #8d806033);pointer-events:none;animation:fall linear infinite}
+    .float-petal:nth-child(1){left:12%;animation-duration:12s;animation-delay:-3s}
+    .float-petal:nth-child(2){left:35%;animation-duration:15s;animation-delay:-8s;transform:scale(.7)}
+    .float-petal:nth-child(3){left:68%;animation-duration:13s;animation-delay:-5s;transform:scale(.8)}
+    .float-petal:nth-child(4){left:88%;animation-duration:17s;animation-delay:-10s;transform:scale(.6)}
+    .detail-photo{display:block;width:100%;max-height:560px;object-fit:cover;object-position:center 48%;border-top:1px solid #e8dfd3;border-bottom:1px solid #e8dfd3}
+    .below{padding:34px 24px 42px;text-align:center;background:linear-gradient(#f8f5ef,#eee8df)}
+    .below h2{font-family:'Great Vibes',cursive;font-size:43px;font-weight:400;color:#967654;margin-bottom:8px}
+    .below p{font-size:19px;line-height:1.45;color:#766453}
+    .countdown{display:flex;justify-content:center;gap:12px;margin:22px 0}
+    .time-box{min-width:62px;padding:9px 5px;border:1px solid #d8c9b6;background:#ffffff75}
+    .time-box b{display:block;font-size:25px;font-weight:500}
+    .time-box small{font-family:Montserrat,sans-serif;font-size:8px;letter-spacing:1px;text-transform:uppercase}
+    .rsvp{display:inline-block;margin-top:12px;padding:13px 22px;background:#897762;color:#fff;text-decoration:none;font-family:Montserrat,sans-serif;font-size:10px;letter-spacing:1.4px;text-transform:uppercase;border:1px solid #897762;transition:.25s}
+    .rsvp:hover{background:#6d5947;transform:translateY(-2px)}
+    .music-button{position:fixed;z-index:20;right:max(14px,calc((100vw - 520px)/2 + 14px));bottom:16px;width:54px;height:54px;border:1px solid #b79b79;border-radius:50%;background:#f8f5eff2;color:#765d48;box-shadow:0 5px 20px #40332226;display:grid;place-items:center;cursor:pointer;backdrop-filter:blur(8px)}
+    .music-button svg{width:23px;height:23px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+    .music-label{position:fixed;z-index:19;right:max(76px,calc((100vw - 520px)/2 + 76px));bottom:29px;background:#f8f5efed;color:#765d48;border:1px solid #dfd2c1;border-radius:20px;padding:7px 12px;font:10px Montserrat,sans-serif;letter-spacing:.4px;box-shadow:0 3px 12px #40332216}
+    .toast{position:fixed;left:50%;bottom:84px;transform:translateX(-50%);z-index:30;background:#6e5b49;color:#fff;padding:10px 16px;border-radius:30px;font:11px Montserrat,sans-serif;opacity:0;pointer-events:none;transition:.3s;white-space:nowrap}
+    .toast.show{opacity:1}
+    @keyframes fadeUp{from{opacity:0;transform:translateY(13px)}to{opacity:1;transform:translateY(0)}}
+    @keyframes fall{0%{top:-8%;margin-left:0;transform:rotate(0)}50%{margin-left:28px}100%{top:105%;margin-left:-10px;transform:rotate(300deg)}}
+    @media(min-width:700px){body{padding:25px 0}.page{border-radius:4px}.music-button{right:calc((100vw - 520px)/2 + 14px)}}
+    @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important}}
+  </style>
+</head>
+<body>
+  <main class="page">
+    <section class="poster" aria-label="Адилет менен Фатиманын үйлөнүү үлпөтүнө чакыруу">
+      <img class="poster-bg" src="assets/invitation-bg.jpg" alt="Ак гүлдөр менен кооздолгон үйлөнүү чакыруусунун фону">
+      <div class="poster-content">
+        <div class="top-note">Үйлөнүү үлпөтүнө чакыруу</div>
+        <h1 class="couple">Адилет <span>&</span> Фатима</h1>
+        <p class="invite-text">Урматтуу коноктор!<br>Сиздерди балдарыбыздын<br>үйлөнүү үлпөт тоюна<br>чын жүрөктөн чакырабыз!</p>
+        <div class="details">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M7 3v4M17 3v4M3 10h18"/></svg>
+          <span>30-декабрь, 2026-жыл</span>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l4 2"/></svg>
+          <span>Саат 17:00</span>
+          <svg class="pin" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 22s8-7.2 8-13a8 8 0 1 0-16 0c0 5.8 8 13 8 13Z"/><circle cx="12" cy="9" r="2.5" fill="#f8f5ef" stroke="#f8f5ef"/></svg>
+          <span>Каракол шаары</span>
+        </div>
+        <div class="hosts">Той ээлери:<strong>Медина & Арлен</strong></div>
+        <div class="bottom-caption">СИЗДЕРДИ КҮТӨБҮЗ</div>
+      </div>
+      <i class="float-petal"></i><i class="float-petal"></i><i class="float-petal"></i><i class="float-petal"></i>
+    </section>
+
+    <img class="detail-photo" src="assets/couple-detail.jpg" alt="Үйлөнүү үлпөтүндөгү гүлдесте жана кол кармашкан жубайлардын сүрөтү">
+    <section class="below">
+      <h2>Сиздерди күтөбүз!</h2>
+      <p>Бул кубанычтуу күнүбүздү сиздер менен бирге белгилөө биз үчүн чоң бакыт.</p>
+      <div class="countdown" aria-label="Тойго калган убакыт">
+        <div class="time-box"><b id="days">--</b><small>Күн</small></div>
+        <div class="time-box"><b id="hours">--</b><small>Саат</small></div>
+        <div class="time-box"><b id="minutes">--</b><small>Мүнөт</small></div>
+        <div class="time-box"><b id="seconds">--</b><small>Секунд</small></div>
+      </div>
+      <p>Жаш жубайларга ак тилегиңизди калтырыңыз.</p>
+      <a class="rsvp" id="rsvp" href="#">Куттуктоо жөнөтүү</a>
+    </section>
+  </main>
+
+  <div class="music-label" id="musicLabel">«Өзгөчө күн» ырын угуу</div>
+  <button class="music-button" id="musicButton" type="button" aria-label="Музыканы күйгүзүү" title="Музыканы күйгүзүү">
+    <svg id="musicIcon" viewBox="0 0 24 24"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>
+  </button>
+  <audio id="weddingSong" preload="metadata" loop>
+    <source src="assets/ozgocho-kun.mp3" type="audio/mpeg">
+  </audio>
+  <div class="toast" id="toast">Музыка ойнотулууда</div>
+
+  <script>
+    // Музыка конок баскандан кийин гана ойнойт — браузердин эрежеси ушундай.
+    const audio = document.getElementById('weddingSong');
+    const musicButton = document.getElementById('musicButton');
+    const musicLabel = document.getElementById('musicLabel');
+    const musicIcon = document.getElementById('musicIcon');
+    const toast = document.getElementById('toast');
+
+    function showToast(message) {
+      toast.textContent = message;
+      toast.classList.add('show');
+      setTimeout(() => toast.classList.remove('show'), 2200);
+    }
+
+    musicButton.addEventListener('click', async () => {
+      if (audio.paused) {
+        try {
+          await audio.play();
+          musicLabel.textContent = 'Музыка ойнотулууда ♪';
+          musicButton.setAttribute('aria-label', 'Музыканы токтотуу');
+          musicIcon.innerHTML = '<path d="M8 5v14M16 5v14"/>';
+          showToast('«Өзгөчө күн» ыры ойнотулууда 🤍');
+        } catch (error) {
+          showToast('Ыр файлын assets папкасына жүктөңүз.');
+        }
+      } else {
+        audio.pause();
+        musicLabel.textContent = '«Өзгөчө күн» ырын угуу';
+        musicButton.setAttribute('aria-label', 'Музыканы күйгүзүү');
+        musicIcon.innerHTML = '<path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/>';
+        showToast('Музыка токтотулду');
+      }
+    });
+
+    // Тойго чейинки убакытты эсептөө.
+    const weddingDate = new Date('2026-12-30T17:00:00+06:00').getTime();
+    function updateCountdown() {
+      const now = Date.now();
+      const distance = weddingDate - now;
+      if (distance <= 0) {
+        document.getElementById('days').textContent = '0';
+        document.getElementById('hours').textContent = '0';
+        document.getElementById('minutes').textContent = '0';
+        document.getElementById('seconds').textContent = '0';
+        return;
+      }
+      document.getElementById('days').textContent = Math.floor(distance / 86400000);
+      document.getElementById('hours').textContent = Math.floor((distance % 86400000) / 3600000);
+      document.getElementById('minutes').textContent = Math.floor((distance % 3600000) / 60000);
+      document.getElementById('seconds').textContent = Math.floor((distance % 60000) / 1000);
+    }
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+
+    // Куттуктоо WhatsApp аркылуу жөнөтүлөт.
+    const whatsappNumber = '996503309352';
+    const message = 'Саламатсыздарбы! Адилет менен Фатиманын үйлөнүү тоюна куттуктоо жана ак тилегим: ';
+    document.getElementById('rsvp').href = 'https://wa.me/' + whatsappNumber + '?text=' + encodeURIComponent(message);
+  </script>
+</body>
+</html>
